@@ -1,8 +1,3 @@
-// import simpleRestProvider from "ra-data-simple-rest";
-
-// export const dataProvider = simpleRestProvider(
-//   import.meta.env.VITE_SIMPLE_REST_URL
-// );
 import simpleRestDataProvider from "ra-data-simple-rest";
 import {
   CreateParams,
@@ -10,7 +5,6 @@ import {
   DataProvider,
   fetchUtils,
 } from "react-admin";
-
 
 
 const endpoint = import.meta.env.VITE_SIMPLE_REST_URL
@@ -27,6 +21,7 @@ type UserParams = {
     title?: string;
   };
 };
+
 
 type PostParams = {
   id: string;
@@ -71,7 +66,6 @@ const createPostFormData = (
 };
 
 
-
 export const dataProvider: DataProvider = {
   ...baseDataProvider,
   create: (resource, params) => {
@@ -108,7 +102,6 @@ export const dataProvider: DataProvider = {
         .then(({ json }) => ({ data: json }));
     }
 
-
     if (resource === "posts") {
       const formData = createPostFormData(params);
       return fetchUtils
@@ -118,7 +111,6 @@ export const dataProvider: DataProvider = {
         })
         .then(({ json }) => ({ data: json }));
     }
-
     return baseDataProvider.update(resource, params);
   },
 };
