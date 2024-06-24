@@ -1,5 +1,5 @@
 // in src/posts.jsx
-import { List,ImageField ,Datagrid, TextField, EmailField, BooleanField, ImageInput, DateField, ReferenceField } from 'react-admin';
+import { List ,Datagrid, TextField, DateField, ReferenceField } from 'react-admin';
 
 export const list_comment = () => (
     <List>
